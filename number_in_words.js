@@ -1,3 +1,4 @@
+
 function numberToWords(number) {
   // Your code here
   let huruf = ['','satu','dua','tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan']
@@ -34,6 +35,12 @@ function numberToWords(number) {
         return 'seratus ' + numberToWords(number % 100)
     } else if (number < 1000) {
         return numberToWords(Math.floor(number / 100)) + ' ratus ' + numberToWords(number % 100)
+    } else if (number < 2000) {
+        return 'seribu ' + numberToWords(number % 1000)
+    } else if (number < 1000000) {
+        return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(number % 1000)
+    } else if (number < 1000000000) {
+        return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords (number % 1000000)
     }
   }
 
@@ -42,10 +49,10 @@ console.log(numberToWords(11));
 console.log(numberToWords(23));
 console.log(numberToWords(185));
 console.log(numberToWords(999));
-// console.log(numberToWords(1526));
-// console.log(numberToWords(31526));
-// console.log(numberToWords(152636));
-// console.log(numberToWords(93456875));
+console.log(numberToWords(1526));
+console.log(numberToWords(31526));
+console.log(numberToWords(152636));
+console.log(numberToWords(93456875));
 // console.log(numberToWords(93456875945));
 
 module.exports = {
