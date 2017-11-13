@@ -1,58 +1,43 @@
-function numberToWords(number) {
-  // Your code here
-  satuan = ['satu','dua','tiga','empat','lima','enam','tuju','delapan','sebilan'];
-  belasan = ['sebelas']
-  puluhan = ['sepuluh']
-  ratusan = ['seratus']
+const arr = ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan', 'sepuluh', 'sebelas'];
 
-  for (var i = 1; i < satuan.length; i++) {
-  	puluhan.push(satuan[i]+' puluh')
-  	ratusan.push(satuan[i]+' ratus')
-  	belasan.push(satuan[i]+' belas')
+const toNumber = (num) => {
+  
+  if (num < 12) {
+   return arr[num];
   }
-  
-  
-  cekpanjang = String(number).length
-  
-  if(cekpanjang ===1){
+  else if (num < 20) {
+    return toNumber(num % 10) + ' belas';
+  }else if(num<100){
+    return toNumber((num-(num%10))/10 )+' puluh ' +toNumber(num%10)
     
-    return satuan[number-1]
-  }
-  if(cekpanjang === 2){
-    if(number<=19){
-      var cek = String(number).split('')
-      ambil = Number(cek[1])
-      return belasan[ambil-1]
-    }else {
-      var cek = String(number).split('')
-      puluh = Number(cek[0])
-      satu = Number(cek[1])
-      return puluhan[puluh-1] +" "+satuan[satu-1]
-      
-    }
-   
-  }
-  if(cekpanjang === 3){
-    var cek = String(number).split('')
-      ratus = Number(cek[0])
-      puluh = Number(cek[1])
-      satu = Number(cek[2])
-      
-      return ratusan[ratus-1] + " "+ puluhan[puluh-1] + " "+satuan[satu-1]
+  }else if (num<200){
+    
+      return 'seratus ' + toNumber(num%100)
     
   }
- 
-
+  
+  else if(num<1000){
+    
+    return toNumber((num-(num%100))/100) + ' ratus ' + toNumber(num%100)
+  }
+  
+  else if(num<2000)
+  {
+    return "seribu "+toNumber(num%1000)
+    
+  }
+  else if(num<1000000){
+    
+    return toNumber((num-(num%1000))/1000)+ " ribu"+toNumber(num%1000) 
+  }else if (num<1000000000){
+    
+    return toNumber((num-(num%1000000))/1000000)+ " juta "+ toNumber(num%1000000)  
+  }else if(num<1000000000000){
+    return toNumber((num-(num%1000000000))/1000000000)+ " miliar "+ toNumber(num%1000000000)  
+  }
+  else if(num<1000000000000000){
+    return toNumber((num-(num%1000000000000))/1000000000000)+ " triliun "+ toNumber(num%1000000000000)  
+  }
 }
 
-// Driver code
-//console.log(numberToWords(1000000));
-
-console.log(numberToWords(999));
-console.log(numberToWords(4));
-console.log(numberToWords(12));
-console.log(numberToWords(24));
-
-// module.exports = {
-//   numberToWords: numberToWords
-// }
+console.log(toNumber(9990000000000));
