@@ -24,14 +24,8 @@ function numberToWords(number) {
    else if(number < 2000){
      return 'Seribu '+ numberToWords(number%1000)
    }
-   else if (number < 20000) {
-     return numberToWords(Math.floor(number/1000))+ ' Ribu '+numberToWords(number%1000)
- }
   else if( number <200000){
     return numberToWords(Math.floor(number/1000))+ ' Ribu '+numberToWords(number%1000)
-  }
-  else if( number <2000000){
-    return 'Sejuta '+ numberToWords(number%1000000)
   }
 }
 
@@ -40,7 +34,10 @@ console.log(numberToWords(9));
 console.log(numberToWords(14));
 console.log(numberToWords(26));
 console.log(numberToWords(167));
-console.log(numberToWords(1000000));
+console.log(numberToWords(1000));
+console.log(numberToWords(16000));
+console.log(numberToWords(23876));
+console.log(numberToWords(123456));
 
 module.exports = {
   numberToWords: numberToWords
