@@ -40,7 +40,7 @@ function numberToWords(number) {
     tampung += a[numberStr[0]] + ' ratus ' + a[numberStr[1]] + ' puluh ' + a[numberStr[2]];
   }
 
- return tampung;
+ return tampung
 }
 
 // Driver code
