@@ -1,5 +1,18 @@
 function numberToWords(number) {
-  var bilang = ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan', 'sepuluh', 'sebelas'];
+  var bilang = [
+    '',
+    'satu',
+    'dua',
+    'tiga',
+    'empat',
+    'lima',
+    'enam',
+    'tujuh',
+    'delapan',
+    'sembilan',
+    'sepuluh',
+    'sebelas'
+  ];
 
   if (number < 12) {
     return bilang[number];
