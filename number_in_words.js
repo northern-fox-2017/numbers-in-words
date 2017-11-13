@@ -25,7 +25,7 @@ function numberToWords(number) {
   }
 
   if (number >= 100 && number < 1000) {
-    if (split[0] == 1 && number % 100 == 0) {
+    if (split[0] == 1) {
       hasil += 'seratus'
     }else if (number % 100 == 0) {
       hasil += numberToWords(number / 100)+' ratus'
