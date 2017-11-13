@@ -1,13 +1,26 @@
 var satuan=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan'];
 var puluhan=['','','dua puluh','tiga puluh','empat puluh','lima puluh','enam puluh','tujuh puluh','delapan puluh','sembilan puluh'];
-var belasan=['sepuluh','sebelas','dua belas','tiga belas','empat belas','lima belas','enam belas','tujuh belas','delapan belas','sembilan belas'];
+
+function convert_quadrillions(number){
+  if(number>=1000000000000){
+    return convert_quadrillions(Math.floor(number/1000000000000)) + " quadrillion "+convert_billions(number%1000000000000);
+  }
+}
+
+function convert_billions(number){
+  if(number>=1000000000){
+    return convert_billions(Math.floor(number/1000000000))+" trilliun "+convert_millions(number%1000000000);
+  }else{
+    return convert_millions(number);
+  }
+}
 
 function convert_millions(number){
-    if (number>=1000000){
-        return convert_millions(Math.floor(number/1000000))+" juta "+convert_thousands(number%1000000);
-    }else{
+  if (number>=1000000){
+    return convert_millions(Math.floor(number/1000000))+" juta "+convert_thousands(number%1000000);
+  }else{
         return convert_thousands(number);
-    }
+  }
 }
 
 function convert_thousands(number){
@@ -20,7 +33,7 @@ function convert_thousands(number){
 
 function convert_hundreds(number){
   if(number>99){
-    return convert_hundreds(Math.floor(number/100)) + " ratus " + convert_tens(num%100);
+    return convert_hundreds(Math.floor(number/100)) + " ratus " + convert_tens(number%100);
   }else{
     return convert_tens(number);
   }
@@ -49,11 +62,11 @@ function numberToWords(number) {
   }else if(number === 100000000){
     console.log("seratus juta");
   }else{
-    return convert_millions(number);
+    return convert_billions(number);
   }
 }
 
-console.log(numberToWords(9009009));
+console.log(numberToWords(999000000000000));
 
 // Driver code
 console.log(numberToWords(1000000));
