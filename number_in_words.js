@@ -41,6 +41,10 @@ function numberToWords(number) {
         return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(number % 1000)
     } else if (number < 1000000000) {
         return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords (number % 1000000)
+    } else if (number < 1000000000000) {
+        return numberToWords(Math.floor(number / 1000000000)) + ' milyar ' + numberToWords (number % 1000000000)
+    } else if (number < 1000000000000000) {
+        return numberToWords(Math.floor(number / 1000000000000)) + ' triliun ' + numberToWords (number % 1000000000000)
     }
   }
 
@@ -53,7 +57,7 @@ console.log(numberToWords(1526));
 console.log(numberToWords(31526));
 console.log(numberToWords(152636));
 console.log(numberToWords(93456875));
-// console.log(numberToWords(93456875945));
+console.log(numberToWords(99000000000000));
 
 module.exports = {
   numberToWords: numberToWords
