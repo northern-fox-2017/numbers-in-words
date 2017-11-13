@@ -4,7 +4,9 @@ var puluhan=['','','dua puluh','tiga puluh','empat puluh','lima puluh','enam pul
 function convert_quadrillions(number){
   if(number>=1000000000000){
     return convert_quadrillions(Math.floor(number/1000000000000)) + " quadrillion "+convert_billions(number%1000000000000);
-  }
+  }else{
+    return convert_billions(number)
+;  }
 }
 
 function convert_billions(number){
@@ -62,7 +64,7 @@ function numberToWords(number) {
   }else if(number === 100000000){
     console.log("seratus juta");
   }else{
-    return convert_billions(number);
+    return convert_quadrillions(number);
   }
 }
 
