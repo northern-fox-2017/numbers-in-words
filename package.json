@@ -9,5 +9,8 @@
   "scripts": {
     "start": "node number_in_words.js",
     "test": "mocha number_in_words.test.js"
+  },
+  "dependencies": {
+    "nodemon": "^1.12.1"
   }
 }
